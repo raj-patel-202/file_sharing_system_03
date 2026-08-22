@@ -40,6 +40,46 @@
     --tag-color-none: rgba(0, 0, 0, 0.5);
 }
 
+/* ===== Cyberpunk Dark Theme ===== */
+html.dark-theme {
+    --bg-color: #0b0c10;
+    --bg-secondary: #1a1c23;
+    --text-color: #1ce041;
+    --cyan: #00e5ff;
+    --magenta: #ff00ff;
+    --amber: #ffaa00;
+    --hot-pink: #ff1493;
+    --red: #ff3333;
+    --blue: #3366ff;
+    --scanline-color: rgba(255, 255, 255, 0.05);
+    --card-bg: rgba(0, 0, 0, 0.6);
+    --card-border: var(--cyan);
+    --card-border-hover: var(--magenta);
+    --card-bg-hover: rgba(0, 0, 0, 0.8);
+    --input-bg: rgba(0, 0, 0, 0.5);
+    --input-border: var(--cyan);
+    --input-placeholder: rgba(102, 252, 241, 0.5);
+    --file-name-color: #ffffff;
+    --meta-color: #c5c6c7;
+    --meta-label-color: rgba(255, 255, 255, 0.5);
+    --stats-label-color: rgba(255, 255, 255, 0.45);
+    --border-side-glow: linear-gradient(to bottom, transparent 10%, rgba(0, 229, 255, 0.5) 30%, rgba(255, 0, 255, 0.5) 50%, rgba(0, 229, 255, 0.5) 70%, transparent 90%);
+    --nav-bg: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.1) 20%, rgba(255, 0, 255, 0.1) 80%, transparent);
+    --nav-border: rgba(0, 229, 255, 0.3);
+    --form-bg: rgba(0, 0, 0, 0.6);
+    --dropzone-bg: rgba(0, 0, 0, 0.5);
+    --dropzone-border: var(--magenta);
+    --footer-color: rgba(255, 255, 255, 0.35);
+    --logo-shadow: 0 0 10px var(--cyan), 0 0 20px var(--cyan);
+    --dot-shadow: 0 0 10px var(--magenta), 0 0 20px var(--magenta);
+    --heading-shadow: 0 0 10px var(--magenta);
+    --amber-shadow: 0 0 10px var(--amber);
+    --button-shadow: 0 0 15px var(--cyan);
+    --submit-shadow: 0 0 15px var(--text-color);
+    --tag-border-none: rgba(255, 255, 255, 0.2);
+    --tag-color-none: rgba(255, 255, 255, 0.5);
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -154,6 +194,23 @@ header {
     text-shadow: 0 0 6px rgba(184, 20, 101, 0.3);
     white-space: nowrap;
     font-family: 'VT323', monospace;
+}
+
+#theme-toggle {
+    background: none;
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    cursor: pointer;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    padding: 4px 10px;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background: var(--cyan);
+    color: var(--bg-color);
+    box-shadow: 0 0 10px var(--cyan);
 }
 
 /* ===== Nav ===== */
@@ -901,4 +958,17 @@ footer {
     }
 
     .stats-bar { gap: 16px; }
+}
+
+/* Dark Theme Overrides for Buttons & Badges */
+html.dark-theme .file-actions a,
+html.dark-theme .file-actions button,
+html.dark-theme .file-actions select,
+html.dark-theme .file-actions span.status-badge,
+html.dark-theme .file-actions span.action-request {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+html.dark-theme .status-badge {
+    background: rgba(0, 0, 0, 0.6);
 }

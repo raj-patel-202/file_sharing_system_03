@@ -417,4 +417,28 @@ document.addEventListener("DOMContentLoaded", async () => {
             console.error(e);
         }
     }
+    
+
+    // --- Theme Toggle ---
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    if (themeToggleBtn) {
+        // Set initial button text based on current theme
+        if (document.documentElement.classList.contains("dark-theme")) {
+            themeToggleBtn.textContent = "[LIGHT]";
+        } else {
+            themeToggleBtn.textContent = "[DARK]";
+        }
+        
+        themeToggleBtn.addEventListener("click", () => {
+            if (document.documentElement.classList.contains("dark-theme")) {
+                document.documentElement.classList.remove("dark-theme");
+                localStorage.setItem("theme", "light");
+                themeToggleBtn.textContent = "[DARK]";
+            } else {
+                document.documentElement.classList.add("dark-theme");
+                localStorage.setItem("theme", "dark");
+                themeToggleBtn.textContent = "[LIGHT]";
+            }
+        });
+    }
 });

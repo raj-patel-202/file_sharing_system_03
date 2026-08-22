@@ -9,6 +9,11 @@
     {% block head %}{% endblock %}
 </head>
 <body>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+        }
+    </script>
     <div class="scanlines"></div>
     {% block layout %}
     <div class="container">
@@ -16,6 +21,7 @@
             <div class="header-top">
                 <div class="logo-text">SYS<span class="logo-dot">.</span>SHARE</div>
                 <div class="header-right">
+                    <button id="theme-toggle" aria-label="Toggle Theme">[DARK]</button>
                     <div id="user-info"></div>
                 </div>
             </div>
