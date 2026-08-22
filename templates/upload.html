@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %}SYS.SHARE // Upload File{% endblock %}
+{% block content %}
+<div class="form-container" style="max-width: 560px; margin-top: 12px;">
+    <form id="upload-form">
+        <div class="form-group">
+            <label>SELECT FILE:</label>
+            <input type="file" id="file-input" required style="display: none;">
+            <div class="file-drop-zone" id="file-drop-zone">
+                <span id="file-drop-text">[ CLICK OR DROP FILE HERE ]</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>CUSTOM FILE NAME:</label>
+            <input type="text" id="filename-input" placeholder="(Optional) Leave empty for original name">
+        </div>
+        <div class="form-group">
+            <label>VISIBILITY:</label>
+            <select id="visibility-input">
+                <option value="private">Private</option>
+                <option value="public">Public</option>
+            </select>
+        </div>
+        <div id="upload-controls">
+            <button type="submit" id="start-btn" class="btn-submit">[START UPLOAD]</button>
+            <button type="button" id="resume-btn" style="display: none;">[RESUME]</button>
+            <button type="button" id="pause-btn" style="display: none;">[PAUSE]</button>
+        </div>
+    </form>
+    <div id="upload-status"></div>
+    <div id="upload-speed"></div>
+    <div id="progress-bar-container" style="display: none;">
+        <div id="progress-bar"></div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/upload.js"></script>
+{% endblock %}

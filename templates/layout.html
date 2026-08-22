@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SYS.SHARE - Secure File Transfer Terminal">
+    <title>{% block title %}SYS.SHARE // Terminal{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="scanlines"></div>
+    {% block layout %}
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <div class="logo-text">SYS<span class="logo-dot">.</span>SHARE</div>
+                <div class="header-right">
+                    <div id="user-info"></div>
+                </div>
+            </div>
+            {% block nav %}
+            <nav>
+                <a href="/files">[ALL FILES]</a>
+                <a href="/my-uploads">[MY UPLOADS]</a>
+                <a href="/requests">[REQUESTS]</a>
+                <a href="/upload">[UPLOAD]</a>
+                <a href="#" id="logout-btn">[LOGOUT]</a>
+            </nav>
+            {% endblock %}
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        <footer>
+            <span>© 2026 File Sharing System // Secure & Private Workspace</span>
+        </footer>
+    </div>
+    {% endblock layout %}
+    <script src="/static/js/main.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

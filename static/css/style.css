@@ -1,0 +1,904 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
+
+/* ===== Retro Day Theme (Sole Theme with Wooden Card Styling) ===== */
+:root {
+    --bg-color: #f5f0e6;
+    --bg-secondary: #e8e2d5;
+    --text-color: #0d691e;
+    --cyan: #007085;
+    --magenta: #991b7e;
+    --amber: #b05700;
+    --hot-pink: #b81465;
+    --red: #c02222;
+    --blue: #1c52b8;
+    --scanline-color: rgba(0, 0, 0, 0.035);
+    --card-bg: rgba(255, 170, 0, 0.04);
+    --card-border: rgba(176, 87, 0, 0.25);
+    --card-border-hover: rgba(176, 87, 0, 0.45);
+    --card-bg-hover: rgba(255, 170, 0, 0.07);
+    --input-bg: rgba(255, 255, 255, 0.75);
+    --input-border: rgba(176, 87, 0, 0.35);
+    --input-placeholder: rgba(13, 105, 30, 0.35);
+    --file-name-color: #14141e;
+    --meta-color: #005a6b;
+    --meta-label-color: rgba(0, 0, 0, 0.5);
+    --stats-label-color: rgba(0, 0, 0, 0.45);
+    --border-side-glow: linear-gradient(to bottom, transparent 10%, rgba(0, 112, 133, 0.3) 30%, rgba(153, 27, 126, 0.3) 50%, rgba(0, 112, 133, 0.3) 70%, transparent 90%);
+    --nav-bg: linear-gradient(90deg, transparent, rgba(0, 112, 133, 0.06) 20%, rgba(153, 27, 126, 0.06) 80%, transparent);
+    --nav-border: rgba(0, 112, 133, 0.2);
+    --form-bg: rgba(255, 170, 0, 0.04);
+    --dropzone-bg: rgba(255, 170, 0, 0.03);
+    --dropzone-border: rgba(176, 87, 0, 0.4);
+    --footer-color: rgba(0, 0, 0, 0.35);
+    --logo-shadow: 0 0 8px rgba(0, 112, 133, 0.25);
+    --dot-shadow: 0 0 8px rgba(153, 27, 126, 0.25);
+    --heading-shadow: 0 0 6px rgba(153, 27, 126, 0.2);
+    --amber-shadow: 0 0 6px rgba(176, 87, 0, 0.2);
+    --button-shadow: 0 0 10px rgba(0, 112, 133, 0.2);
+    --submit-shadow: 0 0 12px rgba(13, 105, 30, 0.25);
+    --tag-border-none: rgba(0, 0, 0, 0.2);
+    --tag-color-none: rgba(0, 0, 0, 0.5);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    height: 100%;
+    line-height: 1.5;
+}
+
+/* ===== CRT Scanlines ===== */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        var(--scanline-color),
+        var(--scanline-color) 50%,
+        transparent 50%,
+        transparent
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.35;
+}
+
+/* ===== Logo ===== */
+.logo-text {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 24px;
+    color: var(--cyan);
+    text-shadow: var(--logo-shadow);
+    letter-spacing: 3px;
+    user-select: none;
+}
+
+.logo-text.logo-large {
+    font-size: 36px;
+}
+
+.logo-dot {
+    color: var(--magenta);
+    text-shadow: var(--dot-shadow);
+}
+
+.logo-subtitle {
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: var(--meta-color);
+    letter-spacing: 6px;
+    margin-top: 6px;
+    text-align: center;
+}
+
+/* ===== Layout ===== */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px 24px 24px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Side decorative lines */
+.container::before,
+.container::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: var(--border-side-glow);
+    opacity: 0.2;
+    z-index: 1;
+}
+.container::before { left: calc(50% - 500px); }
+.container::after { right: calc(50% - 500px); }
+
+/* ===== Header ===== */
+header {
+    padding: 20px 0 0 0;
+    margin-bottom: 28px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#user-info {
+    color: var(--hot-pink) !important;
+    font-size: 20px;
+    text-shadow: 0 0 6px rgba(184, 20, 101, 0.3);
+    white-space: nowrap;
+    font-family: 'VT323', monospace;
+}
+
+/* ===== Nav ===== */
+nav {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    background: var(--nav-bg);
+    border-top: 1px solid var(--nav-border);
+    border-bottom: 1px solid var(--nav-border);
+}
+
+nav a {
+    color: var(--cyan);
+    text-decoration: none;
+    padding: 5px 14px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    font-size: 17px;
+    letter-spacing: 1px;
+    font-family: 'VT323', monospace;
+}
+
+nav a:hover {
+    background-color: var(--cyan);
+    color: #ffffff;
+    border-color: var(--cyan);
+    text-shadow: none;
+    box-shadow: var(--button-shadow);
+}
+
+nav a.active {
+    background-color: var(--cyan);
+    color: #ffffff;
+    border-color: var(--cyan);
+    text-shadow: none;
+    box-shadow: 0 0 10px rgba(0, 112, 133, 0.35);
+}
+
+nav a#logout-btn {
+    color: var(--red);
+    margin-left: auto;
+}
+
+nav a#logout-btn:hover {
+    background-color: var(--red);
+    color: #ffffff;
+    border-color: var(--red);
+    box-shadow: 0 0 12px rgba(255, 51, 51, 0.4);
+}
+
+/* ===== Main ===== */
+main {
+    flex-grow: 1;
+}
+
+/* ===== Headings ===== */
+h1 {
+    margin: 0;
+    color: var(--cyan);
+    text-shadow: var(--logo-shadow);
+    font-family: 'VT323', monospace;
+}
+
+h2 {
+    margin: 0 0 20px 0;
+    color: var(--magenta);
+    text-shadow: var(--heading-shadow);
+    font-size: 28px;
+    letter-spacing: 3px;
+    font-family: 'VT323', monospace;
+}
+
+h3 {
+    margin: 0 0 14px 0;
+    color: var(--amber);
+    text-shadow: var(--amber-shadow);
+    font-size: 22px;
+    letter-spacing: 2px;
+    font-family: 'VT323', monospace;
+}
+
+/* ===== Auth Pages ===== */
+.auth-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+}
+
+.auth-logo {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.auth-version {
+    margin-top: 32px;
+    font-size: 13px;
+    color: var(--footer-color);
+    letter-spacing: 4px;
+}
+
+/* ===== Form Container (Wooden Card Styling) ===== */
+.form-container {
+    width: 100%;
+    max-width: 440px;
+    padding: 32px;
+    border: 1px solid var(--card-border);
+    background: var(--form-bg);
+    box-shadow: 0 0 30px rgba(176, 87, 0, 0.06);
+    position: relative;
+    margin: 0 auto;
+}
+
+/* Corner decorations */
+.form-container::before,
+.form-container::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-color: var(--amber);
+    border-style: solid;
+}
+.form-container::before {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+}
+.form-container::after {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 2px 2px 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--cyan);
+    margin-bottom: 6px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+input, select {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--input-border);
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    padding: 10px 14px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input::placeholder {
+    color: var(--input-placeholder);
+}
+
+input:focus, select:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 12px rgba(0, 112, 133, 0.25);
+}
+
+/* ===== File Drop Zone ===== */
+.file-drop-zone {
+    border: 1px dashed var(--dropzone-border);
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    color: var(--amber);
+    font-size: 18px;
+    transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+    background: var(--dropzone-bg);
+}
+
+.file-drop-zone:hover {
+    border-color: var(--amber);
+    box-shadow: 0 0 10px rgba(176, 87, 0, 0.2);
+}
+
+.file-drop-zone.dragover {
+    border-color: var(--magenta);
+    background: rgba(255, 0, 255, 0.06);
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+}
+
+.file-drop-zone.file-selected {
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+
+/* ===== Buttons ===== */
+button {
+    background-color: transparent;
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    padding: 8px 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: var(--cyan);
+    color: #ffffff;
+    box-shadow: var(--button-shadow);
+    text-shadow: none;
+}
+
+button.btn-submit {
+    color: var(--text-color);
+    border-color: var(--text-color);
+    width: 100%;
+    font-size: 22px;
+    padding: 12px;
+    margin-top: 8px;
+    letter-spacing: 2px;
+}
+
+button.btn-submit:hover {
+    background-color: var(--text-color);
+    color: #ffffff;
+    box-shadow: var(--submit-shadow);
+}
+
+button.btn-danger {
+    color: var(--red);
+    border-color: var(--red);
+}
+
+button.btn-danger:hover {
+    background-color: var(--red);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.4);
+}
+
+button.btn-approve {
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+button.btn-approve:hover {
+    background-color: var(--text-color);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(51, 255, 0, 0.4);
+}
+
+button.btn-modify-approve {
+    color: var(--amber);
+    border-color: var(--amber);
+}
+
+button.btn-modify-approve:hover {
+    background-color: var(--amber);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 170, 0, 0.4);
+}
+
+/* ===== Links ===== */
+a {
+    color: var(--cyan);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+a:hover {
+    color: #ffffff;
+    background-color: var(--cyan);
+    text-shadow: none;
+}
+
+.auth-link {
+    color: var(--hot-pink);
+    text-shadow: 0 0 6px rgba(255, 110, 199, 0.2);
+}
+
+.auth-link:hover {
+    background-color: var(--hot-pink);
+    color: #ffffff;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--meta-label-color);
+    font-size: 17px;
+}
+
+/* ===== Error/Success Messages ===== */
+.error {
+    color: var(--red) !important;
+    text-shadow: 0 0 8px rgba(255, 51, 51, 0.4);
+    padding: 10px;
+    border-left: 3px solid var(--red);
+    margin-top: 16px;
+    background: rgba(255, 51, 51, 0.08);
+}
+
+.success-msg {
+    color: var(--text-color) !important;
+    text-shadow: 0 0 8px rgba(51, 255, 0, 0.4);
+    padding: 10px;
+    border-left: 3px solid var(--text-color);
+    margin-top: 16px;
+    background: rgba(51, 255, 0, 0.08);
+}
+
+/* ===== File Cards (Wooden Card Styling) ===== */
+.file-item {
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+    position: relative;
+}
+
+.file-item:hover {
+    border-color: var(--card-border-hover);
+    box-shadow: 0 0 20px rgba(176, 87, 0, 0.08);
+    background: var(--card-bg-hover);
+}
+
+.file-item .file-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.file-name {
+    font-size: 22px;
+    color: var(--file-name-color);
+    word-break: break-all;
+    font-family: 'VT323', monospace;
+}
+
+.file-meta {
+    font-size: 15px;
+    color: var(--meta-color);
+    margin-top: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    font-family: 'VT323', monospace;
+}
+
+.file-meta span {
+    white-space: nowrap;
+}
+
+.file-meta .meta-label {
+    color: var(--meta-label-color);
+}
+
+.file-modify-info {
+    font-size: 15px;
+    margin-top: 6px;
+    color: var(--amber);
+    opacity: 0.85;
+}
+
+/* ===== Unified File Action Buttons & Select Boxes ===== */
+.file-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.file-actions a,
+.file-actions button,
+.file-actions select,
+.file-actions span.status-badge,
+.file-actions span.action-request {
+    font-family: 'VT323', monospace;
+    font-size: 15px !important;
+    line-height: 1 !important;
+    height: 28px !important;
+    padding: 0 10px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    vertical-align: middle !important;
+    text-decoration: none !important;
+    letter-spacing: 1px;
+    border-radius: 0;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.7);
+    transition: all 0.15s ease;
+}
+
+.file-actions select {
+    width: auto !important;
+    color: var(--cyan) !important;
+    border: 1px solid var(--cyan) !important;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 18px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cpath fill='%23007085' d='M0 0l4 5 4-5z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 6px center !important;
+    background-size: 8px 6px !important;
+}
+
+.file-actions select:focus {
+    box-shadow: 0 0 8px rgba(0, 112, 133, 0.25) !important;
+}
+
+.file-actions .action-download {
+    color: var(--text-color) !important;
+    border: 1px solid var(--text-color) !important;
+}
+.file-actions .action-download:hover {
+    background: var(--text-color) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 8px rgba(13, 105, 30, 0.3) !important;
+}
+
+.file-actions .action-modify {
+    color: var(--amber) !important;
+    border: 1px solid var(--amber) !important;
+}
+.file-actions .action-modify:hover {
+    background: var(--amber) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 8px rgba(176, 87, 0, 0.3) !important;
+}
+
+.file-actions .action-delete {
+    color: var(--red) !important;
+    border: 1px solid var(--red) !important;
+}
+.file-actions .action-delete:hover {
+    background: var(--red) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 8px rgba(192, 34, 34, 0.3) !important;
+}
+
+.file-actions .action-request {
+    color: var(--magenta) !important;
+    border: 1px solid var(--magenta) !important;
+}
+.file-actions .action-request:hover {
+    background: var(--magenta) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 8px rgba(153, 27, 126, 0.3) !important;
+}
+
+/* ===== Status Badges ===== */
+.status-badge {
+    font-size: 13px;
+    padding: 2px 8px;
+    border: 1px solid;
+    display: inline-block;
+    letter-spacing: 1px;
+    font-family: 'VT323', monospace;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.status-owner {
+    color: var(--cyan);
+    border-color: var(--cyan);
+}
+
+.status-granted {
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+.status-pending {
+    color: var(--amber);
+    border-color: var(--amber);
+    animation: pulse-amber 2s ease-in-out infinite;
+}
+
+@keyframes pulse-amber {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.status-none {
+    color: var(--tag-color-none);
+    border-color: var(--tag-border-none);
+}
+
+.status-public {
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+.status-private {
+    color: var(--red);
+    border-color: var(--red);
+}
+
+/* Incomplete uploads */
+.file-item.incomplete-upload .file-name {
+    color: var(--amber);
+}
+
+/* ===== Stats Bar (Centered in Div) ===== */
+.stats-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    padding: 14px 0;
+    margin: 0 auto 24px auto;
+    border-bottom: 1px solid var(--card-border);
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.stat-item .stat-value {
+    color: var(--cyan);
+    font-size: 24px;
+    text-shadow: var(--logo-shadow);
+    font-family: 'VT323', monospace;
+}
+
+.stat-item .stat-label {
+    color: var(--stats-label-color);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'VT323', monospace;
+}
+
+/* ===== Progress Bar ===== */
+#progress-bar-container {
+    width: 100%;
+    border: 1px solid var(--cyan);
+    height: 24px;
+    margin-top: 16px;
+    position: relative;
+    background: var(--input-bg);
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cyan), var(--magenta));
+    width: 0%;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 112, 133, 0.4);
+    position: relative;
+}
+
+#progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%
+    );
+    animation: progress-shine 2s ease-in-out infinite;
+}
+
+@keyframes progress-shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+#upload-status {
+    color: var(--cyan);
+    font-size: 18px;
+    margin-top: 12px;
+    padding: 8px 0;
+}
+
+#upload-speed {
+    color: var(--amber) !important;
+    font-size: 16px;
+}
+
+#upload-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+#upload-controls button {
+    flex: 1;
+}
+
+#resume-btn {
+    color: var(--text-color) !important;
+    border-color: var(--text-color) !important;
+}
+
+#resume-btn:hover {
+    background: var(--text-color) !important;
+    color: #ffffff !important;
+}
+
+#pause-btn {
+    color: var(--amber) !important;
+    border-color: var(--amber) !important;
+}
+
+#pause-btn:hover {
+    background: var(--amber) !important;
+    color: #ffffff !important;
+}
+
+/* ===== Requests Panel (Wooden Card Styling) ===== */
+.requests-panel {
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    padding: 24px;
+}
+
+.request-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 16px;
+    border: 1px solid rgba(176, 87, 0, 0.2);
+    margin-bottom: 8px;
+    background: rgba(255, 170, 0, 0.04);
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.request-item:hover {
+    border-color: rgba(176, 87, 0, 0.4);
+    background: rgba(255, 170, 0, 0.07);
+}
+
+.request-info {
+    flex: 1;
+    font-size: 18px;
+}
+
+.request-user {
+    color: var(--hot-pink);
+}
+
+.request-file {
+    color: var(--cyan);
+}
+
+.request-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+/* ===== Empty State ===== */
+.empty-state {
+    text-align: center;
+    padding: 48px 20px;
+    color: var(--meta-color);
+    font-size: 20px;
+    border: 1px dashed var(--card-border);
+    background: var(--card-bg);
+    margin: 20px 0;
+    font-family: 'VT323', monospace;
+}
+
+/* ===== Footer ===== */
+footer {
+    border-top: 1px solid var(--nav-border);
+    padding-top: 14px;
+    margin-top: 36px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--footer-color);
+    letter-spacing: 2px;
+}
+
+/* ===== Loading ===== */
+.loading-text {
+    color: var(--cyan);
+    animation: loading-pulse 1.5s ease-in-out infinite;
+    font-size: 18px;
+    text-align: center;
+    margin: 24px 0;
+}
+
+@keyframes loading-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .container::before, .container::after { display: none; }
+    
+    .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .logo-text { font-size: 18px; }
+    .logo-text.logo-large { font-size: 24px; }
+    
+    nav { gap: 2px; }
+    nav a { font-size: 15px; padding: 4px 8px; }
+    
+    .file-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .file-actions { width: 100%; }
+    
+    .form-container { padding: 20px; margin: 20px auto; }
+    
+    .request-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .stats-bar { gap: 16px; }
+}
