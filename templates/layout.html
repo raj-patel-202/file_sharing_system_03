@@ -6,8 +6,10 @@
     <meta name="description" content="SYS.SHARE - Secure File Transfer Terminal">
     <meta name="theme-color" content="#0b0c10">
     <title>{% block title %}SYS.SHARE // Terminal{% endblock %}</title>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap"></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P"></noscript>
     <link rel="stylesheet" href="/static/css/style.css">
     {% block head %}{% endblock %}
 </head>
@@ -39,7 +41,7 @@
             </nav>
             {% endblock %}
         </header>
-        <main id="main-content" role="main">
+        <main id="main-content" role="main" style="min-height: 80vh;">
             {% block content %}{% endblock %}
         </main>
         <footer role="contentinfo">
