@@ -9,10 +9,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             const href = link.getAttribute("href");
             if (href && (path === href || (href === "/files" && path === "/"))) {
                 link.classList.add("active");
+                link.setAttribute("aria-current", "page");
             } else if (href && href !== "#" && href !== "/" && path.startsWith(href)) {
                 link.classList.add("active");
+                link.setAttribute("aria-current", "page");
             } else {
                 link.classList.remove("active");
+                link.removeAttribute("aria-current");
             }
         });
     }
@@ -154,6 +157,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (dropZone && fileInput) {
         dropZone.addEventListener("click", () => fileInput.click());
 
+        // Allow keyboard activation (Enter/Space) for drop zone
+        dropZone.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                fileInput.click();
+            }
+        });
+
         dropZone.addEventListener("dragover", (e) => {
             e.preventDefault();
             dropZone.classList.add("dragover");
@@ -182,6 +193,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const dropText = document.getElementById("file-drop-text");
             dropText.textContent = `${file.name} (${formatFileSize(file.size)})`;
             dropZone.classList.add("file-selected");
+            dropZone.setAttribute("aria-label", `Selected file: ${file.name}, size: ${formatFileSize(file.size)}`);
         }
     }
 
@@ -281,7 +293,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     let actions = "";
                     if (f.access_status === "owner") {
                         actions = `
-                            <select class="vis-select" onchange="updateVisibility(${f.id}, this.value)">
+                            <select id="vis-select-${f.id}" class="vis-select" aria-label="Change visibility for ${formatFileName(f.original_filename)}" title="Change file visibility" onchange="updateVisibility(${f.id}, this.value)">
                                 <option value="private" ${f.visibility==='private'?'selected':''}>Private</option>
                                 <option value="public" ${f.visibility==='public'?'selected':''}>Public</option>
                             </select>
@@ -422,11 +434,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     // --- Theme Toggle ---
     const themeToggleBtn = document.getElementById("theme-toggle");
     if (themeToggleBtn) {
-        // Set initial button text based on current theme
+        // Set initial button text and aria-label based on current theme
         if (document.documentElement.classList.contains("dark-theme")) {
             themeToggleBtn.textContent = "[LIGHT]";
+            themeToggleBtn.setAttribute("aria-label", "Switch to light theme");
         } else {
             themeToggleBtn.textContent = "[DARK]";
+            themeToggleBtn.setAttribute("aria-label", "Switch to dark theme");
         }
         
         themeToggleBtn.addEventListener("click", () => {
@@ -434,10 +448,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 document.documentElement.classList.remove("dark-theme");
                 localStorage.setItem("theme", "light");
                 themeToggleBtn.textContent = "[DARK]";
+                themeToggleBtn.setAttribute("aria-label", "Switch to dark theme");
             } else {
                 document.documentElement.classList.add("dark-theme");
                 localStorage.setItem("theme", "dark");
                 themeToggleBtn.textContent = "[LIGHT]";
+                themeToggleBtn.setAttribute("aria-label", "Switch to light theme");
             }
         });
     }

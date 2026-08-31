@@ -3,8 +3,8 @@
 {% block content %}
 <div class="requests-panel">
     <h3>INCOMING ACCESS REQUESTS</h3>
-    <div id="requests-list">
-        <p class="loading-text">[ LOADING REQUESTS... ]</p>
+    <div id="requests-list" aria-live="polite" aria-label="List of access requests">
+        <p class="loading-text" role="status">[ LOADING REQUESTS... ]</p>
     </div>
 </div>
 {% endblock %}

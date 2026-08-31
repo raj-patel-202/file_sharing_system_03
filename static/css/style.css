@@ -1,43 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
+/* Google Fonts loaded via <link rel="preload"> in layout.html instead of @import for performance */
 
 /* ===== Retro Day Theme (Sole Theme with Wooden Card Styling) ===== */
 :root {
     --bg-color: #f5f0e6;
     --bg-secondary: #e8e2d5;
-    --text-color: #0d691e;
-    --cyan: #007085;
-    --magenta: #991b7e;
-    --amber: #b05700;
-    --hot-pink: #b81465;
-    --red: #c02222;
+    --text-color: #0a5a18;
+    --cyan: #005f70;
+    --magenta: #881a6e;
+    --amber: #955000;
+    --hot-pink: #a0124a;
+    --red: #b01e1e;
     --blue: #1c52b8;
     --scanline-color: rgba(0, 0, 0, 0.035);
     --card-bg: rgba(255, 170, 0, 0.04);
-    --card-border: rgba(176, 87, 0, 0.25);
-    --card-border-hover: rgba(176, 87, 0, 0.45);
+    --card-border: rgba(149, 80, 0, 0.3);
+    --card-border-hover: rgba(149, 80, 0, 0.5);
     --card-bg-hover: rgba(255, 170, 0, 0.07);
     --input-bg: rgba(255, 255, 255, 0.75);
-    --input-border: rgba(176, 87, 0, 0.35);
-    --input-placeholder: rgba(13, 105, 30, 0.35);
+    --input-border: rgba(149, 80, 0, 0.4);
+    --input-placeholder: rgba(10, 90, 24, 0.5);
     --file-name-color: #14141e;
-    --meta-color: #005a6b;
-    --meta-label-color: rgba(0, 0, 0, 0.5);
-    --stats-label-color: rgba(0, 0, 0, 0.45);
-    --border-side-glow: linear-gradient(to bottom, transparent 10%, rgba(0, 112, 133, 0.3) 30%, rgba(153, 27, 126, 0.3) 50%, rgba(0, 112, 133, 0.3) 70%, transparent 90%);
-    --nav-bg: linear-gradient(90deg, transparent, rgba(0, 112, 133, 0.06) 20%, rgba(153, 27, 126, 0.06) 80%, transparent);
-    --nav-border: rgba(0, 112, 133, 0.2);
+    --meta-color: #004a5a;
+    --meta-label-color: rgba(0, 0, 0, 0.6);
+    --stats-label-color: rgba(0, 0, 0, 0.55);
+    --border-side-glow: linear-gradient(to bottom, transparent 10%, rgba(0, 95, 112, 0.3) 30%, rgba(136, 26, 110, 0.3) 50%, rgba(0, 95, 112, 0.3) 70%, transparent 90%);
+    --nav-bg: linear-gradient(90deg, transparent, rgba(0, 95, 112, 0.06) 20%, rgba(136, 26, 110, 0.06) 80%, transparent);
+    --nav-border: rgba(0, 95, 112, 0.25);
     --form-bg: rgba(255, 170, 0, 0.04);
     --dropzone-bg: rgba(255, 170, 0, 0.03);
-    --dropzone-border: rgba(176, 87, 0, 0.4);
-    --footer-color: rgba(0, 0, 0, 0.35);
-    --logo-shadow: 0 0 8px rgba(0, 112, 133, 0.25);
-    --dot-shadow: 0 0 8px rgba(153, 27, 126, 0.25);
-    --heading-shadow: 0 0 6px rgba(153, 27, 126, 0.2);
-    --amber-shadow: 0 0 6px rgba(176, 87, 0, 0.2);
-    --button-shadow: 0 0 10px rgba(0, 112, 133, 0.2);
-    --submit-shadow: 0 0 12px rgba(13, 105, 30, 0.25);
-    --tag-border-none: rgba(0, 0, 0, 0.2);
-    --tag-color-none: rgba(0, 0, 0, 0.5);
+    --dropzone-border: rgba(149, 80, 0, 0.5);
+    --footer-color: rgba(0, 0, 0, 0.45);
+    --logo-shadow: 0 0 8px rgba(0, 95, 112, 0.25);
+    --dot-shadow: 0 0 8px rgba(136, 26, 110, 0.25);
+    --heading-shadow: 0 0 6px rgba(136, 26, 110, 0.2);
+    --amber-shadow: 0 0 6px rgba(149, 80, 0, 0.2);
+    --button-shadow: 0 0 10px rgba(0, 95, 112, 0.2);
+    --submit-shadow: 0 0 12px rgba(10, 90, 24, 0.25);
+    --tag-border-none: rgba(0, 0, 0, 0.3);
+    --tag-color-none: rgba(0, 0, 0, 0.6);
+    --nav-active-bg: #005060;
+    --nav-active-color: #ffffff;
+    --focus-outline-color: #005f70;
 }
 
 /* ===== Cyberpunk Dark Theme ===== */
@@ -61,23 +64,26 @@ html.dark-theme {
     --input-placeholder: rgba(102, 252, 241, 0.5);
     --file-name-color: #ffffff;
     --meta-color: #c5c6c7;
-    --meta-label-color: rgba(255, 255, 255, 0.5);
-    --stats-label-color: rgba(255, 255, 255, 0.45);
+    --meta-label-color: rgba(255, 255, 255, 0.6);
+    --stats-label-color: rgba(255, 255, 255, 0.55);
     --border-side-glow: linear-gradient(to bottom, transparent 10%, rgba(0, 229, 255, 0.5) 30%, rgba(255, 0, 255, 0.5) 50%, rgba(0, 229, 255, 0.5) 70%, transparent 90%);
     --nav-bg: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.1) 20%, rgba(255, 0, 255, 0.1) 80%, transparent);
     --nav-border: rgba(0, 229, 255, 0.3);
     --form-bg: rgba(0, 0, 0, 0.6);
     --dropzone-bg: rgba(0, 0, 0, 0.5);
     --dropzone-border: var(--magenta);
-    --footer-color: rgba(255, 255, 255, 0.35);
+    --footer-color: rgba(255, 255, 255, 0.45);
     --logo-shadow: 0 0 10px var(--cyan), 0 0 20px var(--cyan);
     --dot-shadow: 0 0 10px var(--magenta), 0 0 20px var(--magenta);
     --heading-shadow: 0 0 10px var(--magenta);
     --amber-shadow: 0 0 10px var(--amber);
     --button-shadow: 0 0 15px var(--cyan);
     --submit-shadow: 0 0 15px var(--text-color);
-    --tag-border-none: rgba(255, 255, 255, 0.2);
-    --tag-color-none: rgba(255, 255, 255, 0.5);
+    --tag-border-none: rgba(255, 255, 255, 0.3);
+    --tag-color-none: rgba(255, 255, 255, 0.6);
+    --nav-active-bg: #00c8e0;
+    --nav-active-color: #0b0c10;
+    --focus-outline-color: #00e5ff;
 }
 
 *, *::before, *::after {
@@ -93,6 +99,48 @@ body, html {
     font-size: 18px;
     height: 100%;
     line-height: 1.5;
+}
+
+/* ===== Skip to Content Link (GIGW / WCAG) ===== */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 16px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    padding: 8px 16px;
+    z-index: 10001;
+    border: 2px solid var(--text-color);
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 8px;
+    outline: 3px solid var(--focus-outline-color);
+    outline-offset: 2px;
+}
+
+/* ===== Focus Visible Styles (WCAG 2.1 AA) ===== */
+:focus-visible {
+    outline: 3px solid var(--focus-outline-color);
+    outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--focus-outline-color);
+    outline-offset: 2px;
+}
+
+/* Remove default focus for mouse users, keep for keyboard */
+:focus:not(:focus-visible) {
+    outline: none;
 }
 
 /* ===== CRT Scanlines ===== */
@@ -191,7 +239,7 @@ header {
 #user-info {
     color: var(--hot-pink) !important;
     font-size: 20px;
-    text-shadow: 0 0 6px rgba(184, 20, 101, 0.3);
+    text-shadow: 0 0 6px rgba(160, 18, 74, 0.3);
     white-space: nowrap;
     font-family: 'VT323', monospace;
 }
@@ -243,12 +291,13 @@ nav a:hover {
     box-shadow: var(--button-shadow);
 }
 
+/* Active nav link — high contrast: dark bg + white text */
 nav a.active {
-    background-color: var(--cyan);
-    color: #ffffff;
-    border-color: var(--cyan);
+    background-color: var(--nav-active-bg);
+    color: var(--nav-active-color);
+    border-color: var(--nav-active-bg);
     text-shadow: none;
-    box-shadow: 0 0 10px rgba(0, 112, 133, 0.35);
+    box-shadow: 0 0 10px rgba(0, 80, 96, 0.35);
 }
 
 nav a#logout-btn {
@@ -260,7 +309,7 @@ nav a#logout-btn:hover {
     background-color: var(--red);
     color: #ffffff;
     border-color: var(--red);
-    box-shadow: 0 0 12px rgba(255, 51, 51, 0.4);
+    box-shadow: 0 0 12px rgba(176, 30, 30, 0.4);
 }
 
 /* ===== Main ===== */
@@ -323,7 +372,7 @@ h3 {
     padding: 32px;
     border: 1px solid var(--card-border);
     background: var(--form-bg);
-    box-shadow: 0 0 30px rgba(176, 87, 0, 0.06);
+    box-shadow: 0 0 30px rgba(149, 80, 0, 0.06);
     position: relative;
     margin: 0 auto;
 }
@@ -360,7 +409,6 @@ h3 {
     font-size: 15px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    opacity: 0.9;
 }
 
 input, select {
@@ -381,7 +429,7 @@ input::placeholder {
 
 input:focus, select:focus {
     border-color: var(--cyan);
-    box-shadow: 0 0 12px rgba(0, 112, 133, 0.25);
+    box-shadow: 0 0 12px rgba(0, 95, 112, 0.25);
 }
 
 /* ===== File Drop Zone ===== */
@@ -398,7 +446,7 @@ input:focus, select:focus {
 
 .file-drop-zone:hover {
     border-color: var(--amber);
-    box-shadow: 0 0 10px rgba(176, 87, 0, 0.2);
+    box-shadow: 0 0 10px rgba(149, 80, 0, 0.2);
 }
 
 .file-drop-zone.dragover {
@@ -456,7 +504,7 @@ button.btn-danger {
 button.btn-danger:hover {
     background-color: var(--red);
     color: #ffffff;
-    box-shadow: 0 0 15px rgba(255, 51, 51, 0.4);
+    box-shadow: 0 0 15px rgba(176, 30, 30, 0.4);
 }
 
 button.btn-approve {
@@ -496,7 +544,7 @@ a:hover {
 
 .auth-link {
     color: var(--hot-pink);
-    text-shadow: 0 0 6px rgba(255, 110, 199, 0.2);
+    text-shadow: 0 0 6px rgba(160, 18, 74, 0.2);
 }
 
 .auth-link:hover {
@@ -514,11 +562,11 @@ a:hover {
 /* ===== Error/Success Messages ===== */
 .error {
     color: var(--red) !important;
-    text-shadow: 0 0 8px rgba(255, 51, 51, 0.4);
+    text-shadow: 0 0 8px rgba(176, 30, 30, 0.4);
     padding: 10px;
     border-left: 3px solid var(--red);
     margin-top: 16px;
-    background: rgba(255, 51, 51, 0.08);
+    background: rgba(176, 30, 30, 0.08);
 }
 
 .success-msg {
@@ -546,7 +594,7 @@ a:hover {
 
 .file-item:hover {
     border-color: var(--card-border-hover);
-    box-shadow: 0 0 20px rgba(176, 87, 0, 0.08);
+    box-shadow: 0 0 20px rgba(149, 80, 0, 0.08);
     background: var(--card-bg-hover);
 }
 
@@ -629,14 +677,14 @@ a:hover {
     -webkit-appearance: none;
     -moz-appearance: none;
     padding-right: 18px !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cpath fill='%23007085' d='M0 0l4 5 4-5z'/%3E%3C/svg%3E") !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cpath fill='%23005f70' d='M0 0l4 5 4-5z'/%3E%3C/svg%3E") !important;
     background-repeat: no-repeat !important;
     background-position: right 6px center !important;
     background-size: 8px 6px !important;
 }
 
 .file-actions select:focus {
-    box-shadow: 0 0 8px rgba(0, 112, 133, 0.25) !important;
+    box-shadow: 0 0 8px rgba(0, 95, 112, 0.25) !important;
 }
 
 .file-actions .action-download {
@@ -646,7 +694,7 @@ a:hover {
 .file-actions .action-download:hover {
     background: var(--text-color) !important;
     color: #ffffff !important;
-    box-shadow: 0 0 8px rgba(13, 105, 30, 0.3) !important;
+    box-shadow: 0 0 8px rgba(10, 90, 24, 0.3) !important;
 }
 
 .file-actions .action-modify {
@@ -656,7 +704,7 @@ a:hover {
 .file-actions .action-modify:hover {
     background: var(--amber) !important;
     color: #ffffff !important;
-    box-shadow: 0 0 8px rgba(176, 87, 0, 0.3) !important;
+    box-shadow: 0 0 8px rgba(149, 80, 0, 0.3) !important;
 }
 
 .file-actions .action-delete {
@@ -666,7 +714,7 @@ a:hover {
 .file-actions .action-delete:hover {
     background: var(--red) !important;
     color: #ffffff !important;
-    box-shadow: 0 0 8px rgba(192, 34, 34, 0.3) !important;
+    box-shadow: 0 0 8px rgba(176, 30, 30, 0.3) !important;
 }
 
 .file-actions .action-request {
@@ -676,7 +724,7 @@ a:hover {
 .file-actions .action-request:hover {
     background: var(--magenta) !important;
     color: #ffffff !important;
-    box-shadow: 0 0 8px rgba(153, 27, 126, 0.3) !important;
+    box-shadow: 0 0 8px rgba(136, 26, 110, 0.3) !important;
 }
 
 /* ===== Status Badges ===== */
@@ -731,7 +779,7 @@ a:hover {
     color: var(--amber);
 }
 
-/* ===== Stats Bar (Centered in Div) ===== */
+/* ===== Stats Bar (CLS prevention with min-height) ===== */
 .stats-bar {
     display: flex;
     justify-content: center;
@@ -742,6 +790,7 @@ a:hover {
     border-bottom: 1px solid var(--card-border);
     flex-wrap: wrap;
     text-align: center;
+    min-height: 52px;
 }
 
 .stat-item {
@@ -765,6 +814,11 @@ a:hover {
     font-family: 'VT323', monospace;
 }
 
+/* ===== File List (CLS prevention with min-height) ===== */
+#file-list {
+    min-height: 200px;
+}
+
 /* ===== Progress Bar ===== */
 #progress-bar-container {
     width: 100%;
@@ -781,7 +835,7 @@ a:hover {
     background: linear-gradient(90deg, var(--cyan), var(--magenta));
     width: 0%;
     transition: width 0.3s ease;
-    box-shadow: 0 0 10px rgba(0, 112, 133, 0.4);
+    box-shadow: 0 0 10px rgba(0, 95, 112, 0.4);
     position: relative;
 }
 
@@ -861,14 +915,14 @@ a:hover {
     align-items: center;
     gap: 16px;
     padding: 14px 16px;
-    border: 1px solid rgba(176, 87, 0, 0.2);
+    border: 1px solid rgba(149, 80, 0, 0.25);
     margin-bottom: 8px;
     background: rgba(255, 170, 0, 0.04);
     transition: border-color 0.3s, background 0.3s;
 }
 
 .request-item:hover {
-    border-color: rgba(176, 87, 0, 0.4);
+    border-color: rgba(149, 80, 0, 0.45);
     background: rgba(255, 170, 0, 0.07);
 }
 

@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% block title %}SYS.SHARE // My Uploads{% endblock %}
 {% block content %}
-<div id="files-stats" class="stats-bar" style="display: none;"></div>
-<div id="file-list" data-filter="owner">
-    <p class="loading-text">[ LOADING UPLOADS... ]</p>
+<div id="files-stats" class="stats-bar" role="status" aria-live="polite" aria-label="Upload statistics" style="display: none;"></div>
+<div id="file-list" data-filter="owner" aria-live="polite" aria-label="List of your uploaded files">
+    <p class="loading-text" role="status">[ LOADING UPLOADS... ]</p>
 </div>
 {% endblock %}

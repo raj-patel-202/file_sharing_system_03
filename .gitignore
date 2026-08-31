@@ -9,3 +9,5 @@ venv/
 .venv/
 .pytest_cache/
 storage/
+node-v20.11.1-win-x64/
+test.db

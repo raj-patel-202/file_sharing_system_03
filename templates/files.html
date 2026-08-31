@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% block title %}SYS.SHARE // All Files{% endblock %}
 {% block content %}
-<div id="files-stats" class="stats-bar" style="display: none;"></div>
-<div id="file-list" data-filter="all">
-    <p class="loading-text">[ LOADING FILES... ]</p>
+<div id="files-stats" class="stats-bar" role="status" aria-live="polite" aria-label="File statistics" style="display: none;"></div>
+<div id="file-list" data-filter="all" aria-live="polite" aria-label="List of files">
+    <p class="loading-text" role="status">[ LOADING FILES... ]</p>
 </div>
 {% endblock %}
